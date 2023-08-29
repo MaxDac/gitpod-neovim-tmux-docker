@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=maxdac/gitpod-neovim:0.9.1-tmux-3.3
+ARG BASE_IMAGE=maxdac/gitpod-neovim
 
 FROM ${BASE_IMAGE}
 
@@ -12,6 +12,11 @@ ENV KERL_BUILD_DOCS=yes
 # Maybe not needed
 # ENV DEBIAN_FRONTEND noninteractive
 
+# ensure we use bash for all RUN commands
+# use -l to use interactive login shell
+# and ensure modifications to bashrc are properly sourced
+SHELL ["/bin/bash", "-lc"]
+
 RUN sudo apt-get update -y \
     && sudo apt-get install -y gnupg software-properties-common curl git apt-transport-https zsh \
     && sudo apt-get install -y build-essential autoconf m4 libncurses5-dev libncurses-dev xsltproc \
@@ -20,11 +25,6 @@ RUN sudo apt-get update -y \
     && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
 
 USER gitpod
-
-# ensure we use bash for all RUN commands
-# use -l to use interactive login shell
-# and ensure modifications to bashrc are properly sourced
-SHELL ["/bin/bash", "-lc"]
 
 # Installing asdf
 RUN asdf plugin add nodejs \
@@ -38,5 +38,3 @@ RUN asdf install erlang ${ERLANG_VERSION} \
 RUN asdf global erlang ${ERLANG_VERSION} \
     && asdf global elixir ${ELIXIR_VERSION} \
     && asdf global nodejs ${NODEJS_VERSION}
-
-SHELL [ "zsh" ]
