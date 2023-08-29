@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=maxdac/gitpod-neovim-tmux:nvim-0.9.1-tmux-3.3
+ARG BASE_IMAGE=maxdac/gitpod-neovim:0.9.1-tmux-3.3
 
 FROM ${BASE_IMAGE}
 
