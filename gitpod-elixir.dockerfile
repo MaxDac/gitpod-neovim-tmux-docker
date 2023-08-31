@@ -26,7 +26,7 @@ RUN sudo apt-get update -y \
 
 USER gitpod
 
-# Installing asdf
+# Installing dependencies with asdf
 RUN asdf plugin add nodejs \
     && asdf plugin add erlang \
     && asdf plugin add elixir
@@ -38,3 +38,21 @@ RUN asdf install erlang ${ERLANG_VERSION} \
 RUN asdf global erlang ${ERLANG_VERSION} \
     && asdf global elixir ${ELIXIR_VERSION} \
     && asdf global nodejs ${NODEJS_VERSION}
+
+USER root
+
+# Downloading efm-langserver
+RUN mkdir /temp \
+    && cd /temp \
+    && wget https://github.com/mattn/efm-langserver/releases/download/v0.0.48/efm-langserver_v0.0.48_linux_amd64.tar.gz \
+    && tar -xzf efm-langserver_v0.0.48_linux_amd64.tar.gz \
+    && cd efm-langserver_v0.0.48_linux_amd64 \
+    && mv efm-langserver /usr/local/bin \
+    && rm -rf /temp
+
+USER gitpod
+
+# Downloading efm-langserver credo configuration
+RUN mkdir -p $HOME/.config/efm-langserver/ \
+    && wget https://gist.githubusercontent.com/MaxDac/dc6a9a7ab1fd9b5e0772a748dbc45deb/raw/1e3adfb4feba13b97c1b2196d986998f6bc7bff2/config.yaml -O $HOME/.config/efm-langserver/config.yaml
+
