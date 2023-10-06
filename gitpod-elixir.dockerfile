@@ -18,7 +18,8 @@ ENV KERL_BUILD_DOCS=yes
 SHELL ["/bin/bash", "-lc"]
 
 RUN sudo apt-get update -y \
-    && sudo apt-get install -y gnupg software-properties-common curl git apt-transport-https zsh \
+    && sudo apt-get upgrade -y \
+    && sudo apt-get install -y unzip gnupg software-properties-common curl git apt-transport-https zsh libssl-dev \
     && sudo apt-get install -y build-essential autoconf m4 libncurses5-dev libncurses-dev xsltproc \
     && sudo apt-get install inotify-tools -y \
     && sudo rm -rf /var/lib/apt/lists/* \
