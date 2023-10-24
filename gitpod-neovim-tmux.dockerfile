@@ -9,7 +9,7 @@ ARG TMUX_VERSION=3.3a
 ENV ZSH_THEME=powerlevel10k/powerlevel10k
 
 RUN sudo apt-get update -y \
-    && sudo apt-get install -y wget curl git apt-transport-https zsh \
+    && sudo apt-get install -y wget curl git apt-transport-https zsh libevent-dev ncurses-dev build-essential bison pkg-config \
     && sudo rm -rf /var/lib/apt/lists/* \
     && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
 
