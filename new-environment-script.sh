@@ -8,8 +8,9 @@ export NODEJS_VERSION=18.18.2
 export ZSH_THEME=powerlevel10k/powerlevel10k
 export KERL_BUILD_DOCS=yes
 
-sudo apt-get update -y \
-    && sudo apt-get install -y wget curl git apt-transport-https zsh libevent-dev ncurses-dev build-essential bison pkg-config \
+sudo apt update -y \
+    && sudo apt upgrade -y \
+    && sudo apt install -y wget curl git apt-transport-https zsh libevent-dev ncurses-dev build-essential bison pkg-config \
     && sudo rm -rf /var/lib/apt/lists/* \
     && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
 
@@ -33,13 +34,13 @@ git clone https://github.com/MaxDac/neovim-configuration $HOME/.config/nvim; \
     wget https://gist.githubusercontent.com/MaxDac/46ca202e8456fe91cad5d3f77147ce6f/raw/8a4ea67f89d11109f23e7e0bcef5c82ef6109120/.zshrc -O $HOME/.zshrc; \
     wget https://gist.githubusercontent.com/MaxDac/73b2e0d201243b796cdfa5019d6ea287/raw/47c40e1fd21cc52153dd155d5df94322624582bf/.p10k.zsh -O $HOME/.p10k.zsh;
 
-sudo apt-get update -y \
-    && sudo apt-get upgrade -y \
-    && sudo apt-get install -y unzip gnupg software-properties-common curl git apt-transport-https zsh libssl-dev unzip \
-    && sudo apt-get install -y build-essential autoconf m4 libncurses5-dev libncurses-dev xsltproc \
-    && sudo apt-get install inotify-tools -y \
+sudo apt update -y \
+    && sudo apt upgrade -y \
+    && sudo apt install -y unzip gnupg software-properties-common curl git apt-transport-https zsh libssl-dev unzip \
+    && sudo apt install -y build-essential autoconf m4 libncurses5-dev libncurses-dev xsltproc \
+    && sudo apt install inotify-tools -y \
     && sudo rm -rf /var/lib/apt/lists/* \
-    && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
+    && sudo apt clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
 
 asdf plugin add nodejs \
     && asdf plugin add erlang \
