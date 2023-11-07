@@ -2,7 +2,7 @@
 
 # Building the images
 docker build -f gitpod-neovim-tmux.dockerfile -t maxdac/gitpod-neovim:0.9.4-tmux-3.3a .
-docker tag maxdac/gitpod-neovim:0.9.4-tmux-3.3 maxdac/gitpod-neovim:latest 
+docker tag maxdac/gitpod-neovim:0.9.4-tmux-3.3a maxdac/gitpod-neovim:latest 
 docker build -f gitpod-elixir.dockerfile -t maxdac/gitpod-elixir:1.15.7-otp-26 .
 docker tag maxdac/gitpod-elixir:1.15.7-otp-26 maxdac/gitpod-elixir:latest 
 
