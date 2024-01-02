@@ -12,5 +12,5 @@ docker login
 # Pushing images to docker
 docker push maxdac/gitpod-neovim:0.9.4-tmux-3.3a
 docker push maxdac/gitpod-neovim:latest
-docker push maxdac/gitpod-elixir:1.15.7-otp-26a
+docker push maxdac/gitpod-elixir:1.16.0-otp-26a
 docker push maxdac/gitpod-elixir:latest 
