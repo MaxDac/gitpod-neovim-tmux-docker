@@ -4,7 +4,7 @@ export TMUX_VERSION=3.3a
 export ZSH_THEME=powerlevel10k/powerlevel10k
 export ERLANG_VERSION=26.2.1
 export ELIXIR_VERSION=1.16.0-otp-26
-export NODEJS_VERSION=20.10.1
+export NODEJS_VERSION=20.10.0
 export ZSH_THEME=powerlevel10k/powerlevel10k
 export KERL_BUILD_DOCS=yes
 
